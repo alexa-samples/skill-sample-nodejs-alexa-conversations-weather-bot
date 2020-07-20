@@ -1,0 +1,17 @@
+{
+  "type": "ResponseTemplate",
+  "arguments": {},
+  "templates": {
+    "prompt": {
+      "type": "APL-A",
+      "name": "AlexaConversationsOutOfDomain"
+    }
+  },
+  "situations": [
+    {
+      "dialogAct": {
+        "type": "CanNotUnderstand"
+      }
+    }
+  ]
+}

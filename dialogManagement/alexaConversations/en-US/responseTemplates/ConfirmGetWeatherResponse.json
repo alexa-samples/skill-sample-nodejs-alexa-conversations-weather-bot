@@ -1,0 +1,13 @@
+{
+  "version": "0.1",
+  "arguments": {
+    "cityName": "CityName"
+  },
+  "templates": {
+    "prompt": {
+      "name": "ConfirmGetWeatherPrompt",
+      "type": "APL-A"
+    }
+  },
+  "situations": []
+}

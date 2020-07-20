@@ -1,0 +1,11 @@
+{
+  "version": "0.1",
+  "arguments": {},
+  "templates": {
+    "prompt": {
+      "name": "RequestCityPrompt",
+      "type": "APL-A"
+    }
+  },
+  "situations": []
+}

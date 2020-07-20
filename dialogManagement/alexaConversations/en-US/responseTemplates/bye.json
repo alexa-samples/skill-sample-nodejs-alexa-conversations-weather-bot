@@ -1,0 +1,17 @@
+{
+  "type": "ResponseTemplate",
+  "arguments": {},
+  "templates": {
+    "prompt": {
+      "type": "APL-A",
+      "name": "AlexaConversationsBye"
+    }
+  },
+  "situations": [
+    {
+      "dialogAct": {
+        "type": "Bye"
+      }
+    }
+  ]
+}

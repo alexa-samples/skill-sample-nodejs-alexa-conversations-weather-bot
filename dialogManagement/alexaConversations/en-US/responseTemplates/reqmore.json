@@ -1,0 +1,17 @@
+{
+  "type": "ResponseTemplate",
+  "arguments": {},
+  "templates": {
+    "prompt": {
+      "type": "APL-A",
+      "name": "AlexaConversationsRequestMore"
+    }
+  },
+  "situations": [
+    {
+      "dialogAct": {
+        "type": "RequestMore"
+      }
+    }
+  ]
+}

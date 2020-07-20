@@ -1,0 +1,17 @@
+{
+  "type": "ResponseTemplate",
+  "arguments": {},
+  "templates": {
+    "prompt": {
+      "type": "APL-A",
+      "name": "AlexaConversationsWelcome"
+    }
+  },
+  "situations": [
+    {
+      "dialogAct": {
+        "type": "Greeting"
+      }
+    }
+  ]
+}

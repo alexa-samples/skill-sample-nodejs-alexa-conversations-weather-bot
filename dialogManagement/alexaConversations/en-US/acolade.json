@@ -1,0 +1,125 @@
+{
+  "ActionAndEntity": {
+    "Types": {
+      "WeatherResult": {
+        "properties": {
+          "cityName": "CityName",
+          "highTemperature": "AMAZON.NUMBER",
+          "lowTemperature": "AMAZON.NUMBER"
+        }
+      },
+      "CityName": {
+        "extends": "AMAZON.Literal"
+      }
+    },
+    "APIs": {
+      "GetWeatherApi": {
+        "returns": "WeatherResult",
+        "nlg": [
+          "GetWeatherResponse"
+        ],
+        "args": {
+          "cityName": {
+            "type": "CityName"
+          }
+        }
+      }
+    }
+  },
+  "Language": {
+    "SpeechActs": {}
+  },
+  "UserUtteranceGroup": {
+    "DenyGetWeather": {
+      "args": {},
+      "formatters": [
+        "actually somewhere else",
+        "no somewhere else",
+        "no wrong city",
+        "nope",
+        "no thanks",
+        "no"
+      ],
+      "dialogAct": "deny",
+      "api": "GetWeatherApi"
+    },
+    "ConfirmGetWeather": {
+      "args": {},
+      "formatters": [
+        "yes please",
+        "yup",
+        "correct",
+        "that\u0027s right",
+        "sure",
+        "yeah",
+        "yes"
+      ],
+      "dialogAct": "affirm",
+      "api": "GetWeatherApi"
+    },
+    "InformCity": {
+      "args": {
+        "cityName": "CityName"
+      },
+      "formatters": [
+        "in ${cityName}",
+        "tell me about ${cityName}",
+        "what about ${cityName} ?",
+        "${cityName}"
+      ],
+      "dialogAct": "inform"
+    },
+    "GetWeatherWithCity": {
+      "args": {
+        "cityName": "CityName"
+      },
+      "formatters": [
+        "how\u0027s the weather at ${cityName} ?",
+        "what\u0027s the weather at ${cityName} ?",
+        "what\u0027s the temperature like in ${cityName} ?",
+        "how\u0027s the weather in ${cityName} ?",
+        "what\u0027s the weather in ${cityName} ?"
+      ],
+      "dialogAct": "invoke",
+      "api": "GetWeatherApi"
+    },
+    "GetWeather": {
+      "args": {},
+      "formatters": [
+        "how\u0027s the weather?",
+        "give me the weather report",
+        "what\u0027s the weather report",
+        "tell me the weather",
+        "get weather",
+        "what\u0027s the weather?"
+      ],
+      "dialogAct": "invoke",
+      "api": "GetWeatherApi"
+    },
+    "welcome": {
+      "args": {},
+      "formatters": [
+        "let\u0027s get started"
+      ],
+      "dialogAct": "invoke",
+      "api": "welcome"
+    }
+  },
+  "GoldenConversations": "{site: amzn1.ask.skill.9b34b94b-0945-46de-8e73-2435b8858319}\n\n{dialogName: GetWeatherRequestingArg}\n{start}\nU: What\u0027s the weather?\nU: { userNlg: GetWeather() }\nA: { nlg: request(api\u003dGetWeatherApi, [{response\u003dRequestCityResponse(),arguments\u003d[cityName]}]) }\nA: In what city?\nU: [Boston.|CityName -\u003e cityName0]\nU: { userNlg: InformCity(cityName\u003d$cityName0) }\nA: { nlg: confirmAPI(api\u003dGetWeatherApi, [{response\u003dConfirmGetWeatherResponse(cityName\u003d$cityName0),arguments\u003d[cityName]}]) }\nA: Just to confirm, you want the weather in Boston today?\nU: Yes.\nU: { userNlg: ConfirmGetWeather() }\nA: { call: GetWeatherApi(cityName\u003d$cityName0) -\u003e weatherResult0 }\nA: { nlg: notifySuccess(api\u003dGetWeatherApi, response\u003dGetWeatherResponse(weatherResult\u003d$weatherResult0)) }\nA: Today in Boston, the high is 72 with a low of 65 degrees.\n{end}\n\n{dialogName: GetWeatherWithArg}\n{start}\nU: What\u0027s the weather in [Seattle|CityName -\u003e cityName0]?\nU: { userNlg: GetWeatherWithCity(cityName\u003d$cityName0) }\nA: { nlg: confirmAPI(api\u003dGetWeatherApi, [{response\u003dConfirmGetWeatherResponse(cityName\u003d$cityName0),arguments\u003d[cityName]}]) }\nA: Just to confirm, you want the weather today in Seattle?\nU: Yes.\nU: { userNlg: ConfirmGetWeather() }\nA: { call: GetWeatherApi(cityName\u003d$cityName0) -\u003e weatherResult0 }\nA: { nlg: notifySuccess(api\u003dGetWeatherApi, response\u003dGetWeatherResponse(weatherResult\u003d$weatherResult0)) }\nA: Today in Seattle, it\u0027s a high of 75 with a low of 65.\n{end}\n\n{dialogName: GetWeatherDenyingFirstArg}\n{start}\nU: What\u0027s the weather like in [Seattle|CityName -\u003e cityName0]?\nU: { userNlg: GetWeatherWithCity(cityName\u003d$cityName0) }\nA: { nlg: confirmAPI(api\u003dGetWeatherApi, [{response\u003dConfirmGetWeatherResponse(cityName\u003d$cityName0),arguments\u003d[cityName]}]) }\nA: To confirm, you wanted the weather today in Seattle?\nU: Actually, another city.\nU: { userNlg: DenyGetWeather() }\nA: { nlg: request(api\u003dGetWeatherApi, [{response\u003dRequestCityResponse(),arguments\u003d[cityName]}]) }\nA: Okay, what city?\nU: [Boston.|CityName -\u003e cityName1]\nU: { userNlg: InformCity(cityName\u003d$cityName1) }\nA: { nlg: confirmAPI(api\u003dGetWeatherApi, [{response\u003dConfirmGetWeatherResponse(cityName\u003d$cityName1),arguments\u003d[cityName]}]) }\nA: To confirm, you wanted the weather today in Boston?\nU: Yeah.\nU: { userNlg: ConfirmGetWeather() }\nA: { call: GetWeatherApi(cityName\u003d$cityName1) -\u003e weatherResult0 }\nA: { nlg: notifySuccess(api\u003dGetWeatherApi, response\u003dGetWeatherResponse(weatherResult\u003d$weatherResult0)) }\nA: Okay, today in Boston the high is 85 and the low is 72 degrees.\n{end}\n\n",
+  "RawDialogs": "",
+  "UserNlg": {},
+  "Catalog": {},
+  "SimulatorConfig": {},
+  "annotationJSON": {
+    "dialogs": [],
+    "pagination": {
+      "isLast": true
+    },
+    "isSecondPass": {
+      "isSecondPassVal": false
+    },
+    "daSysRec": [],
+    "oldDialogCount": 0
+  },
+  "converted": false
+}

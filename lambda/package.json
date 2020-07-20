@@ -1,0 +1,19 @@
+{
+  "name": "weather-bot",
+  "version": "1.0.0",
+  "description": "A simple weather bot skill using Alexa Conversations.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "zip-package": "cd .. && rm -f package.zip && zip -r package.zip *",
+    "zip-lambda": "rm -f lambda.zip && zip -r lambda.zip *",
+    "zip-conversations": "cd .. && rm -f conversations.zip && zip -r conversations.zip dialogManagement/ response/"
+  },
+  "author": "Amazon Alexa",
+  "license": "ISC",
+  "dependencies": {
+    "ask-sdk-core": "^2.6.0",
+    "ask-sdk-model": "^1.18.0",
+    "aws-sdk": "^2.326.0"
+  }
+}

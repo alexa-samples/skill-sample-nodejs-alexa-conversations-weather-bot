@@ -1,0 +1,11 @@
+{
+    "type": "ResponseTemplate",
+    "arguments": {},
+    "templates": {
+        "prompt": {
+            "type": "APL-A",
+            "name": "AlexaConversationsProvideHelp"
+        }
+    },
+    "situations": []
+}

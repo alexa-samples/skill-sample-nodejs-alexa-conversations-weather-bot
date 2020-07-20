@@ -1,0 +1,13 @@
+{
+  "version": "0.1",
+  "arguments": {
+    "weatherResult": "WeatherResult"
+  },
+  "templates": {
+    "prompt": {
+      "name": "GetWeatherPrompt",
+      "type": "APL-A"
+    }
+  },
+  "situations": []
+}
