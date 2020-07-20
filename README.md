@@ -1,7 +1,7 @@
-# Build An Alexa Hello World Skill
+# Build An Alexa Conversations Weather Bot Skill
 <img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/quiz-game/header._TTH_.png" />
 
-### This is a simple tutorial to introduce a simple Alexa skill and code.
+### This is a simple tutorial to introduce a simple Alexa Conversations skill and code.
 
 ## Skill Architecture
 Each skill consists of two basic parts, a front end and a back end.
