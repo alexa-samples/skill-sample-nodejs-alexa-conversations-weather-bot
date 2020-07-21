@@ -1,0 +1,107 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "weather bot",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "DummyIntent",
+          "slots": [],
+          "samples": [
+            "dummy utterance"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "id": "HOU",
+              "name": {
+                "value": "Houston",
+                "synonyms": [
+                  "space city"
+                ]
+              }
+            },
+            {
+              "id": "CHI",
+              "name": {
+                "value": "Chicago",
+                "synonyms": [
+                  "the windy city"
+                ]
+              }
+            },
+            {
+              "id": "LOS",
+              "name": {
+                "value": "Los Angeles",
+                "synonyms": [
+                  "the city of angels",
+                  "la la land"
+                ]
+              }
+            },
+            {
+              "id": "NYC",
+              "name": {
+                "value": "New York City",
+                "synonyms": [
+                  "the big apple",
+                  "the city that never sleeps"
+                ]
+              }
+            },
+            {
+              "id": "BOS",
+              "name": {
+                "value": "Boston",
+                "synonyms": [
+                  "beantown"
+                ]
+              }
+            },
+            {
+              "id": "SEA",
+              "name": {
+                "value": "Seattle",
+                "synonyms": [
+                  "frazier\u0027s house",
+                  "frasier\u0027s house",
+                  "emerald city"
+                ]
+              }
+            }
+          ],
+          "name": "CityName"
+        }
+      ],
+      "modelConfiguration": {
+        "fallbackIntentSensitivity": {
+          "level": "LOW"
+        }
+      }
+    }
+  },
+  "version": "7"
+}

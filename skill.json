@@ -1,0 +1,78 @@
+{
+    "manifest": {
+      "apis": {
+        "custom": {
+          "dialogManagement": {
+            "dialogManagers": [
+              {
+                "type": "AMAZON.Conversations"
+              }
+            ],
+            "sessionStartDelegationStrategy": {
+              "target": "AMAZON.Conversations"
+            }
+          },
+          "endpoint": {
+            "sourceDir": "lambda/custom"
+          },
+          "interfaces": [
+            {
+              "type": "ALEXA_PRESENTATION_APL",
+              "supportedViewports": [
+                {
+                  "maxHeight": 480,
+                  "shape": "ROUND",
+                  "minHeight": 480,
+                  "maxWidth": 480,
+                  "mode": "HUB",
+                  "minWidth": 480
+                },
+                {
+                  "maxHeight": 600,
+                  "shape": "RECTANGLE",
+                  "minHeight": 600,
+                  "maxWidth": 1024,
+                  "mode": "HUB",
+                  "minWidth": 1024
+                },
+                {
+                  "maxHeight": 800,
+                  "shape": "RECTANGLE",
+                  "minHeight": 800,
+                  "maxWidth": 1280,
+                  "mode": "HUB",
+                  "minWidth": 1280
+                },
+                {
+                  "maxHeight": 540,
+                  "shape": "RECTANGLE",
+                  "minHeight": 540,
+                  "maxWidth": 960,
+                  "mode": "TV",
+                  "minWidth": 960
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "publishingInformation": {
+        "category": "KNOWLEDGE_AND_TRIVIA",
+        "distributionCountries": [],
+        "isAvailableWorldwide": true,
+        "locales": {
+          "en-US": {
+            "description": "Weather bot gives you weather information for various cities",
+            "examplePhrases": [
+              "Alexa open weather bot",
+              "Alexa ask weather bot for weather in Seattle"
+            ],
+            "name": "weather-bot",
+            "summary": "Weather bot gives you weather information for various cities"
+          }
+        },
+        "testingInstructions": "Sample Testing Instructions."
+      },
+      "manifestVersion": "1.0"
+    }
+  }
