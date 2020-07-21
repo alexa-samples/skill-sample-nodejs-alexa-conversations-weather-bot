@@ -26,11 +26,11 @@ As a developer, you can see examples of:
 
 Before modifying the template to begin your development, you should try to following invocations and trace their path through the annotated dialog to understand how Utterance Sets, API invocations, API responses and Response Templates are connected together in the dialog to create the interaction and round trip. 
 
- 1. "Alexa, open *conversation starter*"
- 2. "Alexa ask *conversation starter* for weather in Seattle"
+ 1. "Alexa, open weather bot"
+ 2. "Alexa ask weather bot for weather in Seattle"
 
 # Modifying the template
-You can feel free to leave the existing dialogs, APIs, response templates and utterance sets in place and start building your own dialogs, just be aware that utterances that match those in the existing utterance sets have a chance of invoking those dialogs.
+After creating a skill from the hosted-skill template, you can feel free to leave the existing dialogs, APIs, response templates and utterance sets in place and start building your own dialogs, just be aware that utterances that match those in the existing utterance sets have a chance of invoking those dialogs.
 ## To completely clear any traces of the template and start with a 'bare metal' Alexa Conversations skill
 
  - Delete the Utterance Sets named **DenyGetWeather**, **ConfirmGetWeather**, **InformCity**, **GetWeatherWithCity** and **GetWeather**

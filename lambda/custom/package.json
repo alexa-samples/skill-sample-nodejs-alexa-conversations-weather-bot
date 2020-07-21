@@ -4,7 +4,6 @@
   "description": "A simple weather bot skill using Alexa Conversations.",
   "main": "index.js",
   "scripts": {
-    "zip-package": "cd .. && rm -f package.zip && zip -r package.zip *",
     "zip-lambda": "rm -f lambda.zip && zip -r lambda.zip *"
   },
   "author": "Amazon Alexa",
