@@ -53,7 +53,6 @@ const getCityNameWithIdFromApiRequestSlots = (handlerInput) => {
     return null;
 }
 
-
 module.exports = {
     isApiRequest: isApiRequest,
     getApiArguments: getApiArguments,

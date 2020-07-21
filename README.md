@@ -1,35 +1,40 @@
-# Build An Alexa Conversations Weather Bot Skill
-<img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/quiz-game/header._TTH_.png" />
+# Alexa Conversations - Weather Bot Skill 
 
-### This is a simple tutorial to introduce a simple Alexa Conversations skill and code.
+This folder contains the nodejs lambda function code for the Alexa Conversations Weather Bot hosted template available in the Alexa Developer Portal.
 
-## Skill Architecture
-Each skill consists of two basic parts, a front end and a back end.
-The front end is the voice interface, or VUI.
-The voice interface is configured through the voice interaction model.
-The back end is where the logic of your skill resides.
+# How to use
+You should only use this code if you create a new Alexa skill using the Alexa Conversations Weather Bot template, but decide to host your own endpoint for the skill service.
 
-## Three Options for Skill Setup
-There are a number of different ways for you to setup your skill, depending on your experience and what tools you have available.
+# Installing the code in your own lambda function
+To use this code in your own AWS Lambda function, you will need to login to your AWS account and create a lambda function for NodeJS using the latest version and paste the 5 files under lambda/custom folder into the inline editor or upload a zip file containing the files. For more information on setting up lambda functions for use in Alexa skills, please see our documentation: [Host a Custom Skill as an AWS Lambda Function](https://developer.amazon.com/en-US/docs/alexa/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html%28https://developer.amazon.com/en-US/docs/alexa/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html)
 
- * If this is your first skill, choose the [Alexa-Hosted backend instructions](./instructions/setup-vui-alexa-hosted.md) to get started quickly.
- * If you want to manage the backend resources in your own AWS account, you can follow the [AWS-Hosted instructions](./instructions/setup-vui-aws-hosted.md).
- * Developers with the ASK Command Line Interface configured may follow the [ASK CLI instructions](./instructions/cli.md).
 
----
+# Skill Functionality
 
-## Additional Resources
+Please refer to the [developer documentation](https://developer.integ.amazon.com/en-US/docs/alexa/conversations/about-alexa-conversations.html) for details or terminology you don't understand as part of this guide.
 
-### Community
-* [Amazon Developer Forums](https://forums.developer.amazon.com/spaces/165/index.html) - Join the conversation!
-* [Hackster.io](https://www.hackster.io/amazon-alexa) - See what others are building with Alexa.
+This template provides a very simple starting point to demonstrate a few key concepts in Alexa Conversations. Out of the box it supports the following voice flows:
 
-### Tutorials & Guides
-* [Voice Design Guide](https://developer.amazon.com/designing-for-voice/) - A great resource for learning conversational and voice user interface design.
-* [Codecademy: Learn Alexa](https://www.codecademy.com/learn/learn-alexa) - Learn how to build an Alexa Skill from within your browser with this beginner friendly tutorial on Codecademy!
-* [Build multi-turn skills with Alexa Conversations](https://developer.amazon.com/en-US/alexa/alexa-skills-kit/get-deeper/tutorials-code-samples/build-multi-turn-skills-with-alexa-conversations) - Build multi-turn skills with Alexa Conversations
+ - A one-shot invocation that stores a favorite color in the skill session, repeating the stored color back to the user and showing the color in an APL (visual) template
+ - An invocation asking for the favorite color within the same session, again showing the color on the screen and repeating the color back to the user
 
-### Documentation
-* [Official Alexa Skills Kit Node.js SDK](https://www.npmjs.com/package/ask-sdk) - The Official Node.js SDK Documentation
-*  [Official Alexa Skills Kit Documentation](https://developer.amazon.com/docs/ask-overviews/build-skills-with-the-alexa-skills-kit.html) - Official Alexa Skills Kit Documentation
-* [Alexa Conversations Developer Guide](https://developer.amazon.com/en-US/docs/alexa/conversations/about-alexa-conversations.html) - Alexa Conversations Developer Guide
+As a developer, you can see examples of:
+
+ - Annotated dialogs to consume user input
+ - Calling a configured API to pass the captured input to the lambda function,
+ - Processing the response in APL-A (audio)
+
+Before modifying the template to begin your development, you should try to following invocations and trace their path through the annotated dialog to understand how Utterance Sets, API invocations, API responses and Response Templates are connected together in the dialog to create the interaction and round trip. 
+
+ 1. "Alexa, open *conversation starter*"
+ 2. "Alexa ask *conversation starter* for weather in Seattle"
+
+# Modifying the template
+You can feel free to leave the existing dialogs, APIs, response templates and utterance sets in place and start building your own dialogs, just be aware that utterances that match those in the existing utterance sets have a chance of invoking those dialogs.
+## To completely clear any traces of the template and start with a 'bare metal' Alexa Conversations skill
+
+ - Delete the Utterance Sets named **DenyGetWeather**, **ConfirmGetWeather**, **InformCity**, **GetWeatherWithCity** and **GetWeather**
+ - Delete the dialogs **GetWeatherRequestingArg**, **GetWeatherWithArg** and **GetWeatherDenyingFirstArg**
+ - Delete the API Definitions **GetWeatherAPI**
+ - Delete the Response Templates **GetWeatherResponse**, **ConfirmGetWeatherResponse**, **RequestCityResponse**
+ - You will also want to modify the **welcome** template so that the skill launch (i.e. "open *conversation starter*) is more appropriate for your skill.
