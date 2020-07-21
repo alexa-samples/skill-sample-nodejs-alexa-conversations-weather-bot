@@ -15,8 +15,8 @@ Please refer to the [developer documentation](https://developer.integ.amazon.com
 
 This template provides a very simple starting point to demonstrate a few key concepts in Alexa Conversations. Out of the box it supports the following voice flows:
 
- - A one-shot invocation that stores a favorite color in the skill session, repeating the stored color back to the user and showing the color in an APL (visual) template
- - An invocation asking for the favorite color within the same session, again showing the color on the screen and repeating the color back to the user
+ - A one-shot invocation that tells weather information for a given city
+ - Elicitation, denial and re-confirmation of city to give weather information
 
 As a developer, you can see examples of:
 
